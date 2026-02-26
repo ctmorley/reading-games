@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reading Games</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Chalkboard SE','Comic Sans MS',cursive,sans-serif;min-height:100vh;background:#1a1a2e;color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:30px}
+h1{font-size:3rem;margin-bottom:8px;text-shadow:3px 3px 0 rgba(0,0,0,.2)}
+.mascot{font-size:4rem;display:block;margin:10px auto;animation:bounce 2s infinite}
+.subtitle{font-size:1.2rem;opacity:.8;margin-bottom:40px}
+.games-grid{display:grid;grid-template-columns:1fr;gap:18px;width:100%;max-width:400px}
+.game-card{display:flex;align-items:center;gap:18px;padding:22px 26px;border-radius:20px;text-decoration:none;color:#fff;font-weight:bold;font-size:1.4rem;transition:transform .15s,box-shadow .15s;box-shadow:0 6px 0 rgba(0,0,0,.2),0 8px 20px rgba(0,0,0,.3)}
+.game-card:hover{transform:translateY(-3px);box-shadow:0 9px 0 rgba(0,0,0,.2),0 14px 28px rgba(0,0,0,.3)}
+.game-card:active{transform:translateY(2px);box-shadow:0 2px 0 rgba(0,0,0,.2)}
+.game-card .card-emoji{font-size:2.5rem}
+.game-card .card-info{display:flex;flex-direction:column;gap:2px}
+.game-card .card-title{font-size:1.4rem}
+.game-card .card-desc{font-size:.85rem;font-weight:normal;opacity:.8}
+.card-word-adventure{background:linear-gradient(135deg,#f39c12,#e67e22)}
+.card-syllable{background:linear-gradient(135deg,#9b59b6,#8e44ad)}
+.card-vowel{background:linear-gradient(135deg,#2ecc71,#27ae60)}
+.coming-soon{opacity:.45;pointer-events:none;position:relative}
+.coming-soon::after{content:"Coming Soon";position:absolute;right:20px;top:50%;transform:translateY(-50%);font-size:.75rem;background:rgba(255,255,255,.2);padding:4px 10px;border-radius:8px}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+</style>
+</head>
+<body>
+<span class="mascot">🦉</span>
+<h1>Reading Games</h1>
+<p class="subtitle">Fun learning games for young readers!</p>
+<div class="games-grid">
+  <a href="/word-adventure/" class="game-card card-word-adventure">
+    <span class="card-emoji">📖</span>
+    <span class="card-info">
+      <span class="card-title">Word Adventure</span>
+      <span class="card-desc">Learn sight words by grade level</span>
+    </span>
+  </a>
+  <a href="/syllable-game/" class="game-card card-syllable coming-soon">
+    <span class="card-emoji">👏</span>
+    <span class="card-info">
+      <span class="card-title">Syllable Clap</span>
+      <span class="card-desc">Break words into syllables</span>
+    </span>
+  </a>
+  <a href="/vowel-game/" class="game-card card-vowel coming-soon">
+    <span class="card-emoji">🔤</span>
+    <span class="card-info">
+      <span class="card-title">Vowel Spotter</span>
+      <span class="card-desc">Find the vowels in words</span>
+    </span>
+  </a>
+</div>
+</body>
+</html>
