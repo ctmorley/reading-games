@@ -59,7 +59,8 @@ body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(
 .study-header .card-count{font-size:.9rem;color:var(--gray-text)}
 .study-card{background:var(--gray-2);border:1px solid var(--gray-3);border-radius:18px;padding:24px;margin-bottom:16px;text-align:center}
 .study-pattern{font-size:3rem;font-weight:900;color:var(--teal);letter-spacing:.02em;margin-bottom:16px}
-.study-pattern::before{content:'-';opacity:.4}
+.study-pattern .pat-dash{opacity:.4}
+.level-section{margin-bottom:24px;width:100%}
 .featured-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
 .featured-word{background:var(--gray-1);border:1px solid var(--gray-3);border-radius:12px;padding:14px 10px;cursor:pointer;transition:border-color .2s,box-shadow .2s}
 .featured-word:hover{border-color:rgba(0,255,242,.3);box-shadow:0 0 12px rgba(0,255,242,.08)}
@@ -208,8 +209,113 @@ const SETS = {
       { p:"uck", featured:[["duck","🦆"],["puck","🏒"],["muck","🟤"],["truck","🚚"]], extras:["buck","luck","yuck","pluck","stuck","struck"], sentence:"Jim drives his <b>truck</b> in the <b>muck</b>. Pat drove his <b>duck</b> in a truck." },
       { p:"up", featured:[["pup","🐕"],["cup","☕"],["yup","👍"]], extras:["pickup","backup","lineup","makeup","teacup","lookup"], sentence:"The <b>pup</b> eats its food from a <b>cup</b>." }
     ]
+  },
+  B1: {
+    name: "Set B1", vowel: "L-Blends", pos: "start", patterns: [
+      { p:"gl", featured:[["glass","🥛"],["glasses","👓"],["globe","🌍"],["gloves","🧤"]], extras:["glad","glow","glue","glare","glide","glaze","gloss"], sentence:"Glen needs more <b>glue</b>. The boy with <b>glasses</b> drank a <b>glass</b> of milk." },
+      { p:"sl", featured:[["slug","🐌"],["slide","🛝"],["slice","🍰"],["sled","🛷"]], extras:["slim","slap","slam","slow","sleep","slope","sling"], sentence:"I ride my <b>sled</b> on the slippery slope. Do not slap the slow <b>slug</b>!" },
+      { p:"pl", featured:[["plane","✈️"],["play","🎮"],["plant","🪴"],["plate","🍽️"]], extras:["plan","plow","plug","plum","plus","place","plain"], sentence:"I have plenty of <b>plates</b>. They plan to <b>play</b> at Paul's place." },
+      { p:"fl", featured:[["fly","🪰"],["flame","🔥"],["flag","🏁"],["flower","🌸"]], extras:["flat","flap","flip","flute","float","flash","flock"], sentence:"A black <b>fly</b> is on a flat tire. Five flies are flying over a <b>flower</b>." },
+      { p:"bl", featured:[["blocks","🧱"],["blanket","🛏️"],["blender","🥤"],["blue","🔵"]], extras:["blow","blur","blush","blink","blind","black","blade","blank"], sentence:"Blake blows <b>blue</b> balloons. I will pick the blue <b>blocks</b>." },
+      { p:"cl", featured:[["clock","⏰"],["cloud","☁️"],["clown","🤡"],["clam","🐚"]], extras:["clap","claw","clay","clip","clean","clear","click","close"], sentence:"Clem, the <b>clam</b>, wants to be a <b>clown</b>. Clark's class is on a cliff." }
+    ]
+  },
+  B2: {
+    name: "Set B2", vowel: "R-Blends", pos: "start", patterns: [
+      { p:"dr", featured:[["dress","👗"],["drum","🥁"],["dream","💭"],["drink","🥤"]], extras:["dry","drop","drain","draw","drive","drill","drone"], sentence:"Drea's lips are dry. Drake draws dragon cards." },
+      { p:"fr", featured:[["frog","🐸"],["frown","😠"],["fruits","🍎"],["friends","👫"]], extras:["fry","free","from","frost","frame","fries","Friday","fridge"], sentence:"Fred likes frozen <b>fruits</b>. Frank gets free fruits from the store." },
+      { p:"br", featured:[["bread","🍞"],["brick","🧱"],["bridge","🌉"],["brown","🐻"]], extras:["brain","brave","brace","brush","broom","bride","break"], sentence:"Brad eats <b>bread</b> for breakfast. The bracelet is bright and shiny." },
+      { p:"gr", featured:[["grass","🌿"],["green","💚"],["grapes","🍇"],["grow","🌱"]], extras:["grab","gray","gram","grip","grade","grace","groom","great"], sentence:"My grandma is great! The cow eats <b>green</b> <b>grass</b>." },
+      { p:"tr", featured:[["tree","🌳"],["train","🚂"],["trap","🪤"],["truck","🚛"]], extras:["tray","trip","trim","trick","treat","trail","trade","trash"], sentence:"We will trim the Christmas <b>tree</b>. The <b>trap</b> is on the trail." },
+      { p:"pr", featured:[["prize","🏆"],["print","🖨️"],["prince","🤴"],["present","🎁"]], extras:["pray","prey","prom","prank","price","pride","press","pretty"], sentence:"She won <b>prizes</b> for being pretty. Preston is a <b>prince</b>." }
+    ]
+  },
+  B3: {
+    name: "Set B3", vowel: "S-Blends", pos: "start", patterns: [
+      { p:"sk", featured:[["ski","⛷️"],["skirt","👗"],["sky","🌤️"],["skunk","🦨"]], extras:["skim","skid","skin","skip","sketch","skill","skipper"], sentence:"Skyler the <b>skunk</b> is looking at the <b>sky</b>. Skip loves to skate." },
+      { p:"sw", featured:[["swan","🦢"],["sweet","🍬"],["swim","🏊"],["swing","🤸"]], extras:["sway","swell","switch","sweep","swamp","swoop","swirl","swarm"], sentence:"Sweetie the <b>swan</b> loves swimming. Swift drank <b>sweet</b> flower nectar." },
+      { p:"sn", featured:[["snake","🐍"],["snow","❄️"],["snack","🍿"],["snail","🐌"]], extras:["snap","snore","sniff","snatch","snarl","snare","snout"], sentence:"Snyder had a snobby pet <b>snake</b>! Snowy the <b>snow</b> owl is in snowstorm." },
+      { p:"sp", featured:[["speed","🏃"],["spider","🕷️"],["spin","🌀"],["sponge","🧽"]], extras:["spy","spot","spend","spill","spell","spine","spear","sport"], sentence:"Spencer loves splashing, spinning and <b>speed</b>. He spends his spare time doing sports." },
+      { p:"st", featured:[["star","⭐"],["stairs","🪜"],["stamp","📮"],["stop","🛑"]], extras:["step","stage","stand","steam","stool","storm","stable","sting"], sentence:"Stan will take a step up. We must <b>stop</b> at the <b>stairs</b>!" },
+      { p:"sm", featured:[["smile","😊"],["smart","🧠"],["small","🐝"],["smoke","💨"]], extras:["smog","smug","smirk","smear","smash","smudge","smooth"], sentence:"Smith is <b>smart</b> and has a nice <b>smile</b>. Smitty was a <b>small</b> bear." }
+    ]
+  },
+  B4: {
+    name: "Set B4", vowel: "Digraphs (Start)", pos: "start", patterns: [
+      { p:"wh", featured:[["wheel","🎡"],["white","⚪"],["whistle","📯"],["whale","🐋"]], extras:["whip","whim","when","wheat","where","which","whine","while"], sentence:"Whitney rode a bike everywhere she went. Whistler is a <b>white</b> parrot who can <b>whistle</b>." },
+      { p:"th_v", match:"th", label:"th (voiced)", featured:[["this","👈"],["that","👉"]], extras:["than","then","them","these","there","their","though"], sentence:"<b>This</b> table is bigger than their chair. I want <b>that</b> hat not those shoes." },
+      { p:"sh", featured:[["shark","🦈"],["sheep","🐑"],["ship","🚢"],["shoes","👟"]], extras:["she","shop","shape","shell","shore","shelf","short"], sentence:"Sharon the <b>shark</b> loves the shallow water. Her sharp teeth would shred the shrimps." },
+      { p:"ph", featured:[["phone","📱"],["pharaoh","🏺"],["pheasant","🐦"],["photo","📸"]], extras:["phew","Phil","phase","phonics","phrase","Phoebe","phantom"], sentence:"Phoebe likes to take fun <b>photos</b>. Phil is always on his <b>phone</b>." },
+      { p:"ch", featured:[["chair","🪑"],["cherry","🍒"],["cheese","🧀"],["child","👦"]], extras:["chop","chip","chain","check","chase","choke","chimp","chicken"], sentence:"Chester the chimp was chased by a cheetah. Choosy Chester chews so quickly he nearly chokes." },
+      { p:"th", featured:[["three","3️⃣"],["throw","⚾"],["think","🤔"],["thumb","👍"]], extras:["thin","thief","third","thorn","thing","thick","theme","thanks"], sentence:"Theo is a thief. He <b>thinks</b> about many things. He is tall, thin and has thick black hair." }
+    ]
+  },
+  B5: {
+    name: "Set B5", vowel: "Digraphs (End)", pos: "end", patterns: [
+      { p:"ch", featured:[["peach","🍑"],["bench","🪑"],["watch","⌚"],["beach","🏖️"]], extras:["couch","lunch","reach","coach","torch","search","bunch","pouch"], sentence:"Mitch sits on a <b>bench</b> and watches the birds. At lunch Rich sat on a bench to eat his <b>peach</b>." },
+      { p:"sh", featured:[["wash","🧼"],["cash","💵"],["fish","🐟"],["push","📦"]], extras:["ash","bush","dish","mash","rash","wish","trash","brush"], sentence:"Shane left some <b>cash</b> at his shop. I wish I had a tasty <b>fish</b> in a dish." },
+      { p:"th", featured:[["bath","🛁"],["path","🛤️"],["math","🔢"],["teeth","🦷"]], extras:["both","with","moth","faith","mouth","south","north","youth"], sentence:"That <b>path</b> goes south. Both of my brothers like <b>math</b>." },
+      { p:"nk", featured:[["sink","🚰"],["drink","🥤"],["pink","💗"],["wink","😉"]], extras:["ink","bank","sank","skunk","trunk","think","plank"], sentence:"Frank needed to go to the bank. Link had a pet skunk." },
+      { p:"nd", featured:[["hand","✋"],["wind","💨"],["sand","🏝️"],["pond","🏞️"]], extras:["band","lend","bend","mend","kind","land","fond","fund"], sentence:"Rand joined a music <b>band</b>. She is so kind. She lends Rand a <b>hand</b>." },
+      { p:"ng", featured:[["sing","🎤"],["ring","💍"],["strong","💪"],["king","👑"]], extras:["long","song","wing","lung","wrong","young","sting","thing"], sentence:"Chang was stung by a gang of bees! The <b>ring</b> is a gift from a <b>king</b>." }
+    ]
+  },
+  D1: {
+    name: "Set D1", vowel: "Advanced Blends", pos: "any", patterns: [
+      { p:"wor", featured:[["world","🌍"],["worm","🪱"],["work","💼"],["words","📝"]], extras:["wore","worn","worth","worst","worse","worker","worship","workday"], sentence:"On his <b>worst</b> workday the <b>worker</b> found a huge <b>worm</b>. People all around the <b>world</b> have to <b>work</b>." },
+      { p:"thr", featured:[["throw","⚾"],["throne","🏰"],["three","3️⃣"],["thread","🧵"]], extras:["throb","thrash","thrust","thrill","thrift","thrive","throat","through"], sentence:"Rob <b>threw</b> <b>three</b> <b>thread</b>s through the door. What a <b>thrill</b> that Pat helped the flower <b>thrive</b>." },
+      { p:"squ", featured:[["squad","🏀"],["square","🔲"],["squid","🦑"],["squat","🏋️"]], extras:["squash","squawk","squeal","squeak","squint","squirm","squirrel","squeeze"], sentence:"Dad fixed the <b>squeak</b>y door. Mum filled the <b>square</b> <b>squirrel</b> feeder with some food." },
+      { p:"igh", featured:[["knight","⚔️"],["light","💡"],["night","🌙"],["fight","🥊"]], extras:["high","sigh","right","sight","flight","bright","delight"], sentence:"One <b>night</b> there was a big <b>fight</b>. What a delight that our <b>flight</b> was <b>right</b> on time!" },
+      { p:"str", featured:[["street","🛣️"],["string","🧶"],["stripe","🦓"],["strong","💪"]], extras:["straw","strap","stroll","stress","stroke","strain","stretch","strange"], sentence:"<b>Strap</b> the sprig with some <b>string</b>. <b>Stress</b> leads to strife." },
+      { p:"scr", featured:[["scream","😱"],["scrub","🧽"],["screen","🖥️"],["scratch","🐾"]], extras:["scrap","screw","scroll","scrawl","script","screech","scrapper","scribble"], sentence:"<b>Scrub</b> the splat off the <b>scratch</b>es on the wall. Fred used the <b>screw</b>driver to tighten the <b>screw</b>." }
+    ]
+  },
+  D2: {
+    name: "Set D2", vowel: "Vowel Teams", pos: "end", patterns: [
+      { p:"eer", featured:[["deer","🦌"],["peer","👫"],["engineer","👷"],["cheer","🎉"]], extras:["beer","leer","jeer","veer","career","eerie","sheer","reindeer"], sentence:"The elegant <b>deer</b> is a <b>sheer</b> beauty. A <b>cheer</b> for the year of the <b>engineer</b>." },
+      { p:"are", featured:[["care","🤗"],["square","🔲"],["hare","🐰"],["scare","😱"]], extras:["rare","ware","dare","glare","flare","share","stare","spare"], sentence:"<b>Share</b> the pear with the <b>hare</b>! Claire's <b>stare</b> will <b>scare</b> the bear." },
+      { p:"ear", featured:[["ear","👂"],["hear","🔉"],["beard","🧔"],["near","🐶"]], extras:["dear","fear","gear","tear","year","spear","clear","appear"], sentence:"This <b>spear</b> was dear to Eear. The New <b>Year</b> is <b>near</b>." },
+      { p:"ear_air", match:"ear", label:"ear (air)", featured:[["bear","🐻"],["pear","🍐"],["wear","👗"],["tear","💸"]], extras:[], sentence:"Larry <b>wear</b>s a scarf with <b>tear</b>s. The hungry <b>bear</b> found a juicy <b>pear</b> and ate it." },
+      { p:"all", featured:[["ball","⚽"],["wall","🧱"],["tall","📏"],["small","🤏"]], extras:["mall","call","hall","gall","fall","pall","waterfall","rainfall"], sentence:"The <b>tall</b> <b>wall</b> of the <b>mall</b> is painted in blue. I want to <b>call</b> the <b>tall</b> Paul who works at the <b>mall</b>." },
+      { p:"air", featured:[["pair","👞"],["chair","🪑"],["hair","💇"],["stairs","🪜"]], extras:["lair","fair","dairy","fairy","flair","repair","eclair","airship"], sentence:"He used hammer and nails to <b>repair</b> the <b>chair</b>. Barry and Claire are in their fairy lair." }
+    ]
+  },
+  D3: {
+    name: "Set D3", vowel: "Tricky Sounds", pos: "any", patterns: [
+      { p:"s_z", match:"s", label:"s /z/", featured:[["dogs","🐕"],["boys","👦"],["rose","🌹"],["nose","👃"]], extras:["easy","lose","keys","season","cheese","please","stories","berries"], sentence:"Those <b>boys</b> always seem to lose their keys. It is easy to say please!" },
+      { p:"o_long", match:"o", label:"o (long)", featured:[["gold","💰"],["phone","📱"],["toad","🐸"],["smoke","💨"]], extras:["go","no","bold","bone","note","mole","hole","grow"], sentence:"The tan <b>mole</b> dug a wide <b>hole</b>. <b>Smoke</b> in the stove is not safe!" },
+      { p:"y_long_e", match:"y", label:"y (long e)", featured:[["happy","😊"],["baby","👶"],["bunny","🐰"],["candy","🍬"]], extras:["lazy","pony","tiny","jelly","funny","penny","sorry","fluffy"], sentence:"The tiny pony is furry and lazy. I have a fluffy, silly <b>bunny</b> named Polly." },
+      { p:"c_soft", match:"c", label:"c (soft)", featured:[["dice","🎲"],["city","🏙️"],["ice","🧊"],["dance","💃"]], extras:["ace","cent","face","mice","race","circle","circus","pencil"], sentence:"I like to <b>dance</b> in the <b>city</b> square. Pat races in circles around the circus." },
+      { p:"g_soft", match:"g", label:"g (soft)", featured:[["gem","💎"],["cage","🐦"],["giraffe","🦒"],["giant","🧔"]], extras:["age","gym","page","huge","angel","range","gentle","energy"], sentence:"The gentle <b>giant</b> has lots of energy. The huge <b>giraffe</b> is too big for a <b>cage</b>." }
+    ]
+  },
+  D4: {
+    name: "Set D4", vowel: "Word Endings", pos: "end", patterns: [
+      { p:"ous", featured:[["curious","🤔"],["anxious","😰"],["dangerous","⚠️"],["delicious","👨‍🍳"]], extras:["famous","cautious","serious","joyous","nervous","disastrous","enormous"], sentence:"The <b>famous</b> thief is <b>dangerous</b>. The serious man is nervous and <b>anxious</b>." },
+      { p:"dge", featured:[["fridge","🧊"],["badge","🏅"],["bridge","🌉"],["judge","⚖️"]], extras:["edge","wedge","ridge","lodge","dodge","sludge","smudge","grudge"], sentence:"The <b>judge</b> will send the crook to jail. There is a green <b>badge</b> on the <b>fridge</b>." },
+      { p:"ture", featured:[["picture","🖼️"],["pasture","🐄"],["sculpture","🏺"],["vulture","🦅"]], extras:["nature","future","mature","moisture","rupture","mixture","culture","texture"], sentence:"At home we have a <b>picture</b> of a <b>pasture</b>. The mature <b>vulture</b> has bright future." },
+      { p:"tch", featured:[["kitchen","🍳"],["catch","🎣"],["ditch","🕳️"],["watch","⌚"]], extras:["match","hatch","patch","latch","fetch","hitch","stitch","sketch"], sentence:"Can you <b>sketch</b> a rabbit's hutch? I'll <b>catch</b> you in the <b>kitchen</b> later for a quick chat." },
+      { p:"tion", featured:[["vacation","🏖️"],["pollution","🏭"],["education","👨‍🏫"],["station","🚉"]], extras:["nation","action","emotion","lotion","mission","mention","equation","instruction"], sentence:"James will need lotion for his <b>vacation</b>. Use caution at the bus <b>station</b>." },
+      { p:"sion", featured:[["collision","💥"],["explosion","💣"],["television","📺"],["confusion","😕"]], extras:["tension","session","revision","expression","division","invasion","conclusion"], sentence:"My conclusion will cause <b>confusion</b>. We need a decision in this session." }
+    ]
+  },
+  D5: {
+    name: "Set D5", vowel: "Silent Letters", pos: "any", patterns: [
+      { p:"wr", featured:[["write","✍️"],["wrist","🤚"],["wrong","❌"],["wrap","🎁"]], extras:["wry","wreck","wretch","wrote","writer","wrinkle","wrestle","wreath"], sentence:"<b>Wren</b> likes wrestling and writing. Mr. Wright always <b>wrote</b> the <b>wrong</b> things!" },
+      { p:"rh", featured:[["rhino","🦏"],["rhyme","🎵"],["rhombus","🔶"],["rhubarb","🌿"]], extras:[], sentence:"Rhonda thinks the <b>rhino</b> is funny. How many words can you think of that <b>rhyme</b> with cat?" },
+      { p:"ch_k", match:"ch", label:"ch (k)", featured:[["school","🏫"],["chemistry","🧪"],["anchor","⚓"],["stomach","🤢"]], extras:["ache","echo","orchid","chorus","scholar","scheme","Christmas","orchestra"], sentence:"We celebrated <b>Christmas</b> at <b>school</b>. The scholar has <b>stomach</b> ache." },
+      { p:"mb", featured:[["climb","🧗"],["thumb","👍"],["lamb","🐑"],["comb","💇"]], extras:["numb","limb","bomb","tomb","dumb","crumb","plumb"], sentence:"Dad will <b>climb</b> up the ladder to fix the gutters. His <b>thumb</b> became numb after he hit it with a hammer." },
+      { p:"kn", featured:[["knight","⚔️"],["knife","🔪"],["knee","🦵"],["knot","🪢"]], extras:["knit","knob","know","knock","kneel","knead","knuckle","knack"], sentence:"The <b>knight</b> <b>knock</b>s on the door. Do you <b>know</b> how to fix this <b>knot</b>?" },
+      { p:"gn", featured:[["gnome","🧙"],["gnaw","🦫"],["sign","🪧"]], extras:["gnu","gnat","gnarl","gnash","signed","design"], sentence:"The <b>gnome</b> signed the wrong paper. My dog refused to <b>gnaw</b> a bone." }
+    ]
   }
 };
+
+const LEVELS = [
+  { id:1, name:"Level 1", freq:"Everyday Practice", sets:["A1","A2","A3","A4","A5"] },
+  { id:2, name:"Level 2", freq:"Twice a Week", sets:["B1","B2","B3","B4","B5"] },
+  { id:4, name:"Level 4", freq:"Once Every 2 Weeks", sets:["D1","D2","D3","D4","D5"] }
+];
 
 // ==================== STATE ====================
 let game = { screen:'welcome', setKey:null, studyIdx:0, batch:[], questionIndex:0, score:0, options:[], answered:false, selectedAnswer:null, hadWrongAttempt:false, correctOnFirst:[], totalCorrectFirst:0 };
@@ -251,11 +357,14 @@ function studyNav(dir){const set=SETS[game.setKey];game.studyIdx=Math.max(0,Math
 
 function startQuiz(){
   const set=SETS[game.setKey];
+  const pos=set.pos||'end';
   // Gather all featured words from all patterns in this set
   let allWords=[];
   set.patterns.forEach(pat=>{
+    const lbl=pat.label||pat.p;
+    const disp=pos==='any'?lbl:pos==='start'?lbl+'-':'-'+lbl;
     pat.featured.forEach(([w,e])=>{
-      if(w!=='toy box') allWords.push({word:w,emoji:e,pattern:pat.p});
+      if(w!=='toy box') allWords.push({word:w,emoji:e,pattern:pat.p,patternDisplay:disp});
     });
   });
   const batch=shuffle(allWords).slice(0,10);
@@ -267,11 +376,16 @@ function startQuiz(){
 
 function setupQuestion(){
   const set=SETS[game.setKey];
+  const pos=set.pos||'end';
   const target=game.batch[game.questionIndex];
   // Pick 3 distractors from other patterns
   let pool=[];
   set.patterns.forEach(pat=>{
-    if(pat.p!==target.pattern) pat.featured.forEach(([w,e])=>{if(w!=='toy box')pool.push({word:w,emoji:e,pattern:pat.p})});
+    if(pat.p!==target.pattern){
+      const lbl=pat.label||pat.p;
+      const disp=pos==='any'?lbl:pos==='start'?lbl+'-':'-'+lbl;
+      pat.featured.forEach(([w,e])=>{if(w!=='toy box')pool.push({word:w,emoji:e,pattern:pat.p,patternDisplay:disp})});
+    }
   });
   const distractors=shuffle(pool).slice(0,3);
   game.options=shuffle([target,...distractors]);
@@ -317,31 +431,46 @@ function render(){
   else if(game.screen==='results') app.innerHTML=renderResults();
 }
 
+function patDisplay(pat, pos){
+  const lbl = pat.label || pat.p;
+  if (pos === 'any') return lbl;
+  return pos === 'start' ? lbl+'-' : '-'+lbl;
+}
+
 function renderWelcome(){
-  let sets='';
-  for(const[k,s]of Object.entries(SETS)){
-    const pats=s.patterns.map(p=>'-'+p.p).join('  ');
-    sets+=`<button class="set-btn" onclick="selectSet('${k}')">
-      <span class="set-label">${k}</span>
-      <span><strong>${s.vowel}</strong><div class="set-patterns">${pats}</div></span>
-      <span class="set-arrow">›</span>
-    </button>`;
-  }
+  let sections='';
+  LEVELS.forEach(lv=>{
+    let sets='';
+    lv.sets.forEach(k=>{
+      const s=SETS[k];
+      const isPrefix=s.pos==='start';
+      const pats=s.patterns.map(p=>patDisplay(p,s.pos||'end')).join('  ');
+      sets+=`<button class="set-btn" onclick="selectSet('${k}')">
+        <span class="set-label">${k}</span>
+        <span><strong>${s.vowel}</strong><div class="set-patterns">${pats}</div></span>
+        <span class="set-arrow">›</span>
+      </button>`;
+    });
+    sections+=`<div class="level-section">
+      <div class="level-badge">${lv.name} — ${lv.freq}</div>
+      <div class="set-grid">${sets}</div>
+    </div>`;
+  });
   return `<div class="welcome">
     <span class="mascot">🐜</span>
     <h1>Sound <span>Explorer</span></h1>
     <p class="subtitle">Learn letter-sound patterns</p>
-    <div class="level-badge">Level 1 — Everyday Practice</div>
-    <div class="set-grid">${sets}</div>
+    ${sections}
     <a href="/" class="back-btn">&larr; All Games</a>
   </div>`;
 }
 
 function renderSetMenu(){
   const s=SETS[game.setKey];
-  const chips=s.patterns.map(p=>`<span class="pattern-chip">-${p.p}</span>`).join('');
+  const pos=s.pos||'end';
+  const chips=s.patterns.map(p=>`<span class="pattern-chip">${patDisplay(p,pos)}</span>`).join('');
   return `<div class="set-menu">
-    <h2>${s.vowel} <span>Sounds</span></h2>
+    <h2>${s.vowel}</h2>
     <p class="set-desc">${s.name} — ${s.patterns.length} patterns to learn</p>
     <div class="pattern-chips">${chips}</div>
     <div class="mode-buttons">
@@ -354,8 +483,12 @@ function renderSetMenu(){
 
 function renderStudy(){
   const s=SETS[game.setKey],pat=s.patterns[game.studyIdx];
+  const matchP=pat.match||pat.p;
+  const pos=s.pos||'end';
+  const lbl=pat.label||pat.p;
+  const patHtml=pos==='any'?lbl:pos==='start'?`${lbl}<span class="pat-dash">-</span>`:`<span class="pat-dash">-</span>${lbl}`;
   const featured=pat.featured.map(([w,e])=>{
-    const hw=highlightPattern(w,pat.p);
+    const hw=highlightPattern(w,matchP);
     return `<div class="featured-word" onclick="speak('${w}')"><span class="fw-emoji">${e}</span><span class="fw-text">${hw}</span></div>`;
   }).join('');
   const extras=pat.extras.map(w=>`<span class="extra-word" onclick="speak('${w}')">${w}</span>`).join('');
@@ -366,7 +499,7 @@ function renderStudy(){
       <span class="card-count">${game.studyIdx+1} / ${s.patterns.length}</span>
     </div>
     <div class="study-card">
-      <div class="study-pattern">${pat.p}</div>
+      <div class="study-pattern">${patHtml}</div>
       <div class="featured-grid">${featured}</div>
       ${extras?`<div class="extras-row">${extras}</div>`:''}
       <div class="sentence-bar">${pat.sentence}</div>
@@ -394,7 +527,7 @@ function renderQuiz(){
     opts+=`<button class="${cls}" onclick="checkAnswer(${i})">${o.word}</button>`;
   });
   let fb='';
-  if(game.answered) fb=`<div class="feedback correct-fb">That's right! &mdash; <strong>${target.word}</strong> <span class="pattern-tag">-${target.pattern}</span></div>`;
+  if(game.answered) fb=`<div class="feedback correct-fb">That's right! &mdash; <strong>${target.word}</strong> <span class="pattern-tag">${target.patternDisplay}</span></div>`;
   else if(game.selectedAnswer!==null) fb=`<div class="feedback wrong-fb">Not quite — try again</div>`;
   return `<div class="quiz">
     <div class="quiz-header"><div class="score-display"><span class="pts">${game.score}</span> pts</div><div class="progress-display">${game.questionIndex+1} / ${total}</div></div>
@@ -412,7 +545,7 @@ function renderResults(){
   let stars='';for(let i=0;i<3;i++)stars+=`<span class="star-anim">${i<sc?'⭐':'☆'}</span>`;
   let cards='';game.batch.forEach((w,i)=>{
     const ok=game.correctOnFirst[i];
-    cards+=`<div class="review-card ${ok?'':'missed'}"><span class="r-emoji">${w.emoji}</span><span><span class="r-word">${w.word}</span><br><span class="r-pattern">-${w.pattern}</span></span><span class="r-check">${ok?'✅':'🔄'}</span></div>`;
+    cards+=`<div class="review-card ${ok?'':'missed'}"><span class="r-emoji">${w.emoji}</span><span><span class="r-word">${w.word}</span><br><span class="r-pattern">${w.patternDisplay}</span></span><span class="r-check">${ok?'✅':'🔄'}</span></div>`;
   });
   return `<div class="results">
     <h2>All <span>Done!</span></h2>
