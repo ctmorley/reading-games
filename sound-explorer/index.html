@@ -218,7 +218,7 @@ let game = { screen:'welcome', setKey:null, studyIdx:0, batch:[], questionIndex:
 let audioCtx=null;
 function getAudioCtx(){if(!audioCtx)audioCtx=new(window.AudioContext||window.webkitAudioContext)();return audioCtx}
 function playTone(f,d,t='sine',v=.15){try{const c=getAudioCtx(),o=c.createOscillator(),g=c.createGain();o.type=t;o.frequency.setValueAtTime(f,c.currentTime);g.gain.setValueAtTime(v,c.currentTime);g.gain.exponentialRampToValueAtTime(.001,c.currentTime+d);o.connect(g);g.connect(c.destination);o.start();o.stop(c.currentTime+d)}catch(e){}}
-function playCorrectSound(){playTone(523,.12);setTimeout(()=>playTone(659,.12),100);setTimeout(()=>playTone(784,.15),200);setTimeout(()=>playTone(1047,.3,.sine,.12),300)}
+function playCorrectSound(){playTone(523,.12);setTimeout(()=>playTone(659,.12),100);setTimeout(()=>playTone(784,.15),200);setTimeout(()=>playTone(1047,.3,'sine',.12),300)}
 function playWrongSound(){playTone(300,.15,'sine',.1);setTimeout(()=>playTone(250,.25,'sine',.1),120)}
 function playCelebration(){[523,659,784,1047,784,1047,1319].forEach((n,i)=>setTimeout(()=>playTone(n,.2,'sine',.12),i*120))}
 
