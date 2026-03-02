@@ -260,6 +260,56 @@ const SETS = {
       { p:"ng", featured:[["sing","🎤"],["ring","💍"],["strong","💪"],["king","👑"]], extras:["long","song","wing","lung","wrong","young","sting","thing"], sentence:"Chang was stung by a gang of bees! The <b>ring</b> is a gift from a <b>king</b>." }
     ]
   },
+  C1: {
+    name: "Set C1", vowel: "Long Vowel Pairs", pos: "end", patterns: [
+      { p:"ue", featured:[["glue","🧴"],["blue","🔵"],["tissue","🤧"],["clue","🔍"]], extras:["true","duel","issue","cruel","value","statue","pursue"], sentence:"Luke needs a <b>blue</b> <b>tissue</b>. Sue, can you pass me the <b>glue</b>?" },
+      { p:"ui", featured:[["juice","🧃"],["suit","🤵"],["fruits","🍎"],["cruise","🚢"]], extras:["bruise","recruit","suitcase","pursuit"], sentence:"I enjoy drinking fresh fruit <b>juice</b>. A trip on a large ship is called <b>cruise</b>." },
+      { p:"ea", featured:[["leaf","🍃"],["sea","🏖️"],["meat","🥩"],["read","📖"]], extras:["seal","team","meal","clean","dream","speak","beach"], sentence:"Dean eats lots of <b>meat</b>. Our <b>dream</b> is to clean the <b>beach</b> from leaves." },
+      { p:"ee", featured:[["bee","🐝"],["tree","🌳"],["feet","🦶"],["see","👀"]], extras:["meet","keep","feed","need","seed","sleep","sheep","street"], sentence:"I <b>see</b> how Dan feeds the <b>sheep</b>. Keep your <b>feet</b> off the street." },
+      { p:"ai", featured:[["train","🚂"],["rain","🌧️"],["tail","🐱"],["snail","🐌"]], extras:["main","pain","nail","wait","rail","mail","paint","grain"], sentence:"Daisy waits for the <b>train</b>. It is going to <b>rain</b> in Spain." },
+      { p:"oa", featured:[["boat","⛵"],["coat","🧥"],["road","🛣️"],["goat","🐐"]], extras:["toad","goal","soak","soap","loaf","coast","toast","float"], sentence:"He made <b>toast</b>, poached eggs and oats. Then he put on his <b>coat</b> and set off down the <b>road</b>." }
+    ]
+  },
+  C2: {
+    name: "Set C2", vowel: "Magic E", pos: "any", patterns: [
+      { p:"a_e", match:"a", featured:[["wave","🌊"],["cake","🎂"],["plane","✈️"],["gate","🚪"]], extras:["rake","face","case","same","safe","game","whale","snake"], sentence:"Fay and Jane play tennis on the <b>same</b> day. Dave made a <b>cake</b> for Jane." },
+      { p:"e_e", match:"e", featured:[["complete","🧩"],["delete","🗑️"],["concrete","🧱"],["these","👉"]], extras:["Eve","even","Pete","theme","evening","Chinese","Japanese"], sentence:"We need to <b>delete</b> <b>these</b> files. Pete's evening is not <b>complete</b> without music." },
+      { p:"i_e", match:"i", featured:[["kite","🪁"],["five","5️⃣"],["bike","🚲"],["time","🕐"]], extras:["bite","ride","lime","like","fire","nine","pine","fine"], sentence:"Mike likes his new <b>bike</b>. It's <b>time</b> to fly my nice <b>kite</b>." },
+      { p:"o_e", match:"o", featured:[["bone","🦴"],["rose","🌹"],["nose","👃"],["stone","🪨"]], extras:["hole","home","mole","dome","note","vote","smoke","alone"], sentence:"<b>Mole</b>'s home is a <b>hole</b>." }
+    ]
+  },
+  C3: {
+    name: "Set C3", vowel: "R-Controlled", pos: "end", patterns: [
+      { p:"ur", featured:[["nurse","👩‍⚕️"],["church","⛪"],["purse","👛"],["purple","🟣"]], extras:["fur","burn","hurt","curl","surf","turn","purr","turtle"], sentence:"The <b>nurse</b> has a <b>purple</b> <b>purse</b>. The man was in a hurry and burned his burger." },
+      { p:"ar", featured:[["car","🚗"],["star","⭐"],["jar","🫙"],["park","🏞️"]], extras:["far","arm","part","yard","mark","barn","farm","dark"], sentence:"Mark marched down to the <b>barn</b>. It was <b>dark</b> and Matt found a <b>jar</b> in the <b>park</b>." },
+      { p:"ir", featured:[["girl","👧"],["circle","🟢"],["first","🥇"],["bird","🐦"]], extras:["sir","dirt","firm","stir","shirt","skirt","third","swirl","birth"], sentence:"The <b>girl</b> is <b>first</b> in line. Look at the <b>bird</b> and do not stir the dirt!" },
+      { p:"or", featured:[["door","🚪"],["horse","🐴"],["fork","🍴"],["corn","🌽"]], extras:["port","horn","pork","north","actor","sport","storm"], sentence:"There is a <b>storm</b> by the port. Eat the <b>pork</b> with a <b>fork</b>, Thor." },
+      { p:"u_e", match:"u", featured:[["cube","📦"],["tube","🧴"],["mule","🫏"],["tune","🎵"]], extras:["cute","rude","fuse","June","rule","huge","flute"], sentence:"Luke and Duke do not follow the rules. I play a little <b>tune</b> on my flute." },
+      { p:"er", featured:[["father","👨‍👧"],["flower","🌸"],["mother","👩‍👦"],["summer","🏖️"]], extras:["baker","brother","sister","letter","answer","danger","worker","ladder"], sentence:"My <b>mother</b> works as a baker during the <b>summer</b>. Spencer's <b>father</b> took my brother out of danger." }
+    ]
+  },
+  C4: {
+    name: "Set C4", vowel: "Diphthongs", pos: "end", patterns: [
+      { p:"oo", featured:[["broom","🧹"],["school","🏫"],["spoon","🥄"],["goose","🪿"]], extras:["groom","igloo","loose","moose","proof","stood","tooth","yahoo"], sentence:"The fool is in good mood. I cook the food with a <b>spoon</b> in <b>school</b>." },
+      { p:"oo_2", match:"oo", label:"oo", featured:[["book","📖"],["moon","🌙"],["cook","👨‍🍳"],["pool","🏊"]], extras:["wood","food","wool","hook","zoom","room","soon","mood"], sentence:"The stool is made of <b>wood</b>. I use a spoon to <b>cook</b> my food at school." },
+      { p:"au", featured:[["sauce","🥫"],["laundry","👕"],["caution","⚠️"],["haul","🪵"]], extras:["pause","haunt","vault","fault","author","launch","caught","August"], sentence:"Paul's <b>laundry</b> is in the basket. <b>Haul</b> the awful <b>sauce</b> to the vault." },
+      { p:"aw", featured:[["paw","🐾"],["straw","🥤"],["claw","🐯"],["prawn","🦐"]], extras:["saw","lawn","dawn","fawn","hawk","yawn","draw","crawl"], sentence:"We saw a hawk's <b>claw</b> on the lawn. He saw her yawn during the meeting." },
+      { p:"oy", featured:[["toy","🧸"],["boy","👦"],["joy","🤸"],["oyster","🦪"]], extras:["ploy","enjoy","royal","foyer","loyal","employ","destroy","convoy"], sentence:"Roy is a little <b>boy</b>. He has lots of <b>toy</b>s. Toys were something they could all enjoy." },
+      { p:"ow", featured:[["down","📉"],["owl","🦉"],["town","🏘️"],["cow","🐄"]], extras:["now","how","gown","fowl","frown","brown","crowd"], sentence:"The brown <b>cow</b> was found in <b>town</b>. Don't <b>frown</b> or shout, put on this crown!" },
+      { p:"oi", featured:[["coin","💰"],["noise","📢"],["soil","🌱"],["boil","🫕"]], extras:["oil","join","toil","foil","loin","void","point","voice"], sentence:"Avoid the poison in the <b>oil</b>. Roy points to the golden <b>coin</b>s." },
+      { p:"ou", featured:[["house","🏠"],["cloud","☁️"],["mouth","👄"],["proud","🏆"]], extras:["out","sour","loud","hour","shout","round","mouse","sound"], sentence:"There is a big mouse in your <b>house</b>. Do not shout, be <b>loud</b> or make a sound!" }
+    ]
+  },
+  C5: {
+    name: "Set C5", vowel: "More Vowel Teams", pos: "end", patterns: [
+      { p:"ie", featured:[["field","🏞️"],["movie","🎬"],["pie","🥧"],["fries","🍟"]], extras:["tie","flies","shield","piece","thief","alien","grief","chief"], sentence:"She cried when she saw the flies on the <b>pie</b>. Don't grief the chief with burned <b>fries</b>!" },
+      { p:"ew", featured:[["chew","😋"],["stew","🍲"],["crew","👥"],["dew","💧"]], extras:["sew","new","view","renew","flew","grew","knew","brew"], sentence:"The new jet <b>flew</b> to a place with a nice view. The <b>crew</b> sailed the boat down the river." },
+      { p:"oe", featured:[["heroes","🦸"],["toe","🦶"],["hoe","🪴"],["doe","🦌"]], extras:[], sentence:"Tomatoes and potatoes can turn us into <b>heroes</b>. Floe hurt her <b>toe</b>." },
+      { p:"ey", featured:[["keys","🔑"],["monkey","🐒"],["donkey","🫏"],["turkey","🦃"]], extras:["money","honey","valley","jockey","jersey","parsley","trolley","chimney"], sentence:"She lost her <b>keys</b> and money. Tedd ate some <b>turkey</b> with honey and parsley." },
+      { p:"ow", featured:[["blow","🎈"],["slow","🐢"],["grow","🌱"],["snow","❄️"]], extras:["bow","low","tow","glow","flow","know","show","throw"], sentence:"The turtle is <b>slow</b> and doesn't <b>grow</b>. I know how to throw a low ball at Paul." },
+      { p:"ay", featured:[["play","🎮"],["way","🛤️"],["May","📅"],["hay","🌾"]], extras:["day","bay","lay","say","tray","clay","sway","stay"], sentence:"They <b>say</b> — don't stay on the <b>way</b>! Fay ate cake at the bay with Gabe." }
+    ]
+  },
   D1: {
     name: "Set D1", vowel: "Advanced Blends", pos: "any", patterns: [
       { p:"wor", featured:[["world","🌍"],["worm","🪱"],["work","💼"],["words","📝"]], extras:["wore","worn","worth","worst","worse","worker","worship","workday"], sentence:"On his <b>worst</b> workday the <b>worker</b> found a huge <b>worm</b>. People all around the <b>world</b> have to <b>work</b>." },
@@ -314,6 +364,7 @@ const SETS = {
 const LEVELS = [
   { id:1, name:"Level 1", freq:"Everyday Practice", sets:["A1","A2","A3","A4","A5"] },
   { id:2, name:"Level 2", freq:"Twice a Week", sets:["B1","B2","B3","B4","B5"] },
+  { id:3, name:"Level 3", freq:"Once a Week", sets:["C1","C2","C3","C4","C5"] },
   { id:4, name:"Level 4", freq:"Once Every 2 Weeks", sets:["D1","D2","D3","D4","D5"] }
 ];
 
