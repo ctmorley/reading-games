@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Reading Games</title>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap');
 *{margin:0;padding:0;box-sizing:border-box}
@@ -120,6 +121,9 @@ h1 span{color:var(--teal)}
 
 .footer{margin-top:30px;font-size:.8rem;color:var(--gray-text);opacity:.5}
 
+.mascot{display:block;width:120px;height:auto;margin:0 auto 8px;animation:float 3s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+
 @media(max-width:500px){
   h1{font-size:2.3rem}
   .game-card{padding:16px 18px}
@@ -132,6 +136,7 @@ h1 span{color:var(--teal)}
 <div class="orb orb-3"></div>
 
 <div class="content">
+  <img src="/images/scholar-ant.svg" alt="The Scholar Ant" class="mascot">
   <h1>reading<span>.</span>games</h1>
   <p class="subtitle">Fun learning games for young readers</p>
   <div class="games-grid">

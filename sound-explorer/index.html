@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <title>Sound Explorer — reading.games</title>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 *{margin:0;padding:0;box-sizing:border-box}
@@ -26,7 +27,7 @@ body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(
 .welcome{text-align:center;animation:fadeIn .5s ease;max-width:440px;width:100%}
 .welcome h1{font-size:2.6rem;font-weight:900;letter-spacing:-0.03em;margin-bottom:4px}
 .welcome h1 span{color:var(--teal)}
-.welcome .mascot{font-size:3.5rem;display:block;margin:8px auto;animation:float 3s ease-in-out infinite}
+.welcome .mascot{display:block;width:100px;height:auto;margin:8px auto;animation:float 3s ease-in-out infinite}
 .welcome .subtitle{font-size:1rem;color:var(--gray-text);margin-bottom:24px}
 .level-badge{display:inline-block;font-size:.75rem;font-weight:700;color:var(--teal);background:var(--teal-dim);padding:4px 12px;border-radius:6px;margin-bottom:16px;letter-spacing:.04em;text-transform:uppercase}
 .set-grid{display:flex;flex-direction:column;gap:10px;width:100%}
@@ -508,7 +509,7 @@ function renderWelcome(){
     </div>`;
   });
   return `<div class="welcome">
-    <span class="mascot">🐜</span>
+    <img src="/images/scholar-ant.svg" alt="The Scholar Ant" class="mascot">
     <h1>Sound <span>Explorer</span></h1>
     <p class="subtitle">Learn letter-sound patterns</p>
     ${sections}

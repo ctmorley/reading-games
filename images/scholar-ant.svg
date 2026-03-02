@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 300">
+  <defs>
+    <linearGradient id="bodyGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#C48040"/>
+      <stop offset="100%" stop-color="#8B4513"/>
+    </linearGradient>
+    <linearGradient id="headGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#D09050"/>
+      <stop offset="100%" stop-color="#9B5523"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Back legs -->
+  <path d="M82 215 Q55 230 40 255" stroke="#7A3B10" stroke-width="5.5" stroke-linecap="round" fill="none"/>
+  <path d="M40 255 Q37 260 44 259 L56 250" stroke="#7A3B10" stroke-width="4" stroke-linecap="round" fill="none"/>
+  <path d="M158 215 Q185 230 200 255" stroke="#7A3B10" stroke-width="5.5" stroke-linecap="round" fill="none"/>
+  <path d="M200 255 Q203 260 196 259 L184 250" stroke="#7A3B10" stroke-width="4" stroke-linecap="round" fill="none"/>
+
+  <!-- Middle legs (arms waving) -->
+  <path d="M78 185 Q48 170 30 148" stroke="#7A3B10" stroke-width="5.5" stroke-linecap="round" fill="none"/>
+  <path d="M30 148 Q26 143 32 141 L46 150" stroke="#7A3B10" stroke-width="4" stroke-linecap="round" fill="none"/>
+  <path d="M162 185 Q192 170 210 148" stroke="#7A3B10" stroke-width="5.5" stroke-linecap="round" fill="none"/>
+  <path d="M210 148 Q214 143 208 141 L194 150" stroke="#7A3B10" stroke-width="4" stroke-linecap="round" fill="none"/>
+
+  <!-- Front legs -->
+  <path d="M88 170 Q62 162 48 172" stroke="#7A3B10" stroke-width="5.5" stroke-linecap="round" fill="none"/>
+  <path d="M48 172 Q43 175 48 178 L62 172" stroke="#7A3B10" stroke-width="4" stroke-linecap="round" fill="none"/>
+  <path d="M152 170 Q178 162 192 172" stroke="#7A3B10" stroke-width="5.5" stroke-linecap="round" fill="none"/>
+  <path d="M192 172 Q197 175 192 178 L178 172" stroke="#7A3B10" stroke-width="4" stroke-linecap="round" fill="none"/>
+
+  <!-- Abdomen -->
+  <ellipse cx="120" cy="228" rx="46" ry="38" fill="url(#bodyGrad)"/>
+  <ellipse cx="120" cy="228" rx="46" ry="38" fill="none" stroke="#7A3B10" stroke-width="1" opacity=".3"/>
+
+  <!-- Thorax -->
+  <ellipse cx="120" cy="178" rx="34" ry="28" fill="url(#bodyGrad)"/>
+
+  <!-- Neck connector -->
+  <ellipse cx="120" cy="148" rx="18" ry="12" fill="#9B5523"/>
+
+  <!-- Head -->
+  <ellipse cx="120" cy="122" rx="42" ry="35" fill="url(#headGrad)"/>
+
+  <!-- Antennae -->
+  <path d="M98 94 Q82 58 65 40" stroke="#8B4513" stroke-width="4" stroke-linecap="round" fill="none"/>
+  <path d="M142 94 Q158 58 175 40" stroke="#8B4513" stroke-width="4" stroke-linecap="round" fill="none"/>
+  <circle cx="63" cy="38" r="7" fill="#C48040"/>
+  <circle cx="177" cy="38" r="7" fill="#C48040"/>
+
+  <!-- Eyes (white sclera) -->
+  <ellipse cx="104" cy="116" rx="14" ry="15" fill="white"/>
+  <ellipse cx="136" cy="116" rx="14" ry="15" fill="white"/>
+
+  <!-- Pupils -->
+  <circle cx="108" cy="116" r="7" fill="#1a1a1a"/>
+  <circle cx="140" cy="116" r="7" fill="#1a1a1a"/>
+
+  <!-- Eye shine -->
+  <circle cx="111" cy="112" r="3" fill="white"/>
+  <circle cx="143" cy="112" r="3" fill="white"/>
+
+  <!-- Smile -->
+  <path d="M106 135 Q120 150 134 135" stroke="#5C2D0A" stroke-width="3" stroke-linecap="round" fill="none"/>
+
+  <!-- Cheek blush -->
+  <ellipse cx="88" cy="130" rx="8" ry="5" fill="#E8967A" opacity=".4"/>
+  <ellipse cx="152" cy="130" rx="8" ry="5" fill="#E8967A" opacity=".4"/>
+
+  <!-- Graduation cap - board -->
+  <polygon points="58,98 120,76 182,98 120,120" fill="#2a2a2a"/>
+  <!-- Cap top -->
+  <rect x="108" y="72" width="24" height="8" rx="2" fill="#333"/>
+  <rect x="106" y="70" width="28" height="5" rx="2" fill="#3a3a3a"/>
+
+  <!-- Tassel string -->
+  <path d="M182 98 Q186 108 184 122" stroke="#FFD700" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+  <!-- Tassel end -->
+  <circle cx="184" cy="124" r="4" fill="#FFD700"/>
+  <path d="M180 128 L184 140 L188 128" stroke="#FFD700" stroke-width="2" stroke-linecap="round" fill="none"/>
+  <line x1="182" y1="128" x2="182" y2="137" stroke="#FFD700" stroke-width="1.5"/>
+  <line x1="186" y1="128" x2="186" y2="137" stroke="#FFD700" stroke-width="1.5"/>
+
+  <!-- Book stack (in front, carried by front legs) -->
+  <!-- Bottom book (blue) -->
+  <rect x="56" y="160" width="48" height="10" rx="2" fill="#3B82F6" transform="rotate(-8, 80, 165)"/>
+  <!-- Middle book (green) -->
+  <rect x="58" y="152" width="45" height="10" rx="2" fill="#22C55E" transform="rotate(-5, 80, 157)"/>
+  <!-- Top book (orange) -->
+  <rect x="60" y="144" width="42" height="10" rx="2" fill="#F97316" transform="rotate(-2, 80, 149)"/>
+  <!-- Book label -->
+  <text x="72" y="152" font-family="Arial,sans-serif" font-size="6" font-weight="bold" fill="white" transform="rotate(-2, 80, 149)">THE</text>
+
+  <!-- Shadow underneath -->
+  <ellipse cx="120" cy="276" rx="55" ry="10" fill="rgba(0,0,0,0.08)"/>
+</svg>
